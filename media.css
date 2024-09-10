@@ -19,8 +19,8 @@ label.logo{
 	line-height: 80px;
 }
 nav ul{
-	float: right;
-	list-style-type: none;
+	display: flex;
+    list-style: none;
 }
 nav ul li{
 	display: inline-block;
