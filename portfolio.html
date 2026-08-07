@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ==================== SEO ==================== -->
+  <title>Muhammad Abbas | MERN Stack Developer in Islamabad, Pakistan</title>
+  <meta name="description" content="Muhammad Abbas is a MERN Stack Developer in Islamabad, Pakistan specializing in React, Node.js, MongoDB, Express, C++, Python, and Tailwind CSS. View projects, certificates, and education." />
+  <meta name="keywords" content="Muhammad Abbas, MERN Stack Developer, Web Developer Islamabad, React Developer, Node.js Developer, MongoDB, Express, Full Stack Developer Pakistan, C++, Python, Tailwind CSS" />
+  <meta name="author" content="Muhammad Abbas" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#ef4444" />
+  <link rel="canonical" href="https://muhammadabbas.dev/" />
+
+  <!-- ==================== OPEN GRAPH (Facebook/LinkedIn) ==================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Muhammad Abbas | MERN Stack Developer" />
+  <meta property="og:description" content="MERN Stack Developer in Islamabad, Pakistan. Building powerful web applications with React, Node.js, MongoDB, and Express." />
+  <meta property="og:url" content="https://muhammadabbas.dev/" />
+  <meta property="og:site_name" content="Muhammad Abbas Portfolio" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ==================== TWITTER CARD ==================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Abbas | MERN Stack Developer" />
+  <meta name="twitter:description" content="MERN Stack Developer in Islamabad, Pakistan. Building powerful web applications with React, Node.js, MongoDB, and Express." />
+
+  <!-- ==================== GEO / AEO (Generative & Answer Engine Optimization) ==================== -->
+  <meta name="geo.region" content="PK-IS" />
+  <meta name="geo.placename" content="Islamabad" />
+  <meta name="geo.position" content="33.6844;73.0479" />
+  <meta name="ICBM" content="33.6844, 73.0479" />
+
+  <!-- ==================== JSON-LD STRUCTURED DATA (SEO) ==================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Abbas",
+    "url": "https://muhammadabbas.dev/",
+    "jobTitle": "MERN Stack Developer",
+    "email": "mailto:soomromuhammadabbas671@gmail.com",
+    "telephone": "+92-317-3494900",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Islamabad",
+      "addressCountry": "PK"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Quaid-e-Azam University, Islamabad"
+    },
+    "knowsAbout": ["MERN Stack", "React", "Node.js", "MongoDB", "Express", "C++", "Python", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+    "sameAs": []
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Muhammad Abbas Portfolio",
+    "url": "https://muhammadabbas.dev/",
+    "description": "Portfolio of Muhammad Abbas, MERN Stack Developer in Islamabad, Pakistan.",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammad Abbas"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is Muhammad Abbas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Abbas is a MERN Stack Developer based in Islamabad, Pakistan, specializing in React, Node.js, MongoDB, Express, C++, Python, and Tailwind CSS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does Muhammad Abbas offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Abbas offers full-stack web development services including e-commerce platforms, real-time chat applications, notes apps, gallery apps, and authentication systems using the MERN stack."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Muhammad Abbas located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Muhammad Abbas is located in Islamabad, Pakistan."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- BACKGROUND CANVAS -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#about"       onclick="closeMob()">About</a>
+  <a href="#education"   onclick="closeMob()">Education</a>
+  <a href="#certificates" onclick="closeMob()">Certificates</a>
+  <a href="#projects"    onclick="closeMob()">Projects</a>
+  <a href="#experience"  onclick="closeMob()">Experience</a>
+  <a href="#skills"      onclick="closeMob()">Skills</a>
+  <a href="#contact"     onclick="closeMob()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span><</span>Abbas<span>/></span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="ham" id="ham" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section id="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="hero-inner" id="heroInner">
+    <div class="badge">✦ Available for Freelance & Full-time</div>
+    <h1 class="hero-title">Muhammad<br>Abbas</h1>
+    <p class="hero-sub">
+      MERN Stack Developer crafting powerful web applications with
+      React, Node.js, MongoDB & Express — plus C++, Python, and Tailwind CSS.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary"><span>View My Work</span></a>
+      <a href="#contact"  class="btn btn-outline"><span>Get In Touch</span></a>
+    </div>
+    <div class="scroll-hint">
+      <p>Scroll to explore</p>
+      <div class="mouse-icon"><div class="wheel"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+  <div class="container reveal">
+    <span class="section-label">About Me</span>
+    <h2 class="section-title">The Developer<br>Behind The Code</h2>
+    <div class="title-line"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm Muhammad Abbas, a passionate MERN stack developer based in Islamabad.
+          I specialize in building full-stack web applications using MongoDB,
+          Express, React, and Node.js — turning ideas into elegant, functional
+          digital products.
+        </p>
+        <p>
+          I've built projects like e-commerce platforms, real-time chat apps,
+          notes apps, gallery apps, and authentication systems with Gmail
+          verification. I also work with C++, Python, and Tailwind CSS to
+          deliver clean, modern solutions.
+        </p>
+        <p>
+          I'm constantly learning and improving — completing certifications in
+          HTML, CSS, and Responsive Web Design to sharpen my frontend skills
+          and deliver pixel-perfect experiences.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="stat-card"><h3>6+</h3><p>Projects Built</p></div>
+        <div class="stat-card"><h3>4</h3><p>Certifications</p></div>
+        <div class="stat-card"><h3>1</h3><p>Month Internship</p></div>
+        <div class="stat-card"><h3>100%</h3><p>Dedication</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EDUCATION (TIMELINE) ==================== -->
+<section id="education">
+  <div class="container reveal">
+    <span class="section-label">Education</span>
+    <h2 class="section-title">My<br>Education</h2>
+    <div class="title-line"></div>
+    <div class="exp-timeline">
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <span class="exp-date">2024 – 2028</span>
+          <h3>BS Computer Science</h3>
+          <p>Quaid-e-Azam University, Islamabad</p>
+          <div class="tags">
+            <span class="tag">Semester 5</span>
+            <span class="tag">CGPA 2.8</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <span class="exp-date">Completed</span>
+          <h3>Intermediate (Pre-Engineering)</h3>
+          <p>BISE Larkana Board</p>
+          <div class="tags">
+            <span class="tag">90%</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <span class="exp-date">Completed</span>
+          <h3>Matriculation</h3>
+          <p>BISE Larkana Board</p>
+          <div class="tags">
+            <span class="tag">90%</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <span class="exp-date">6 Months</span>
+          <h3>CIT Course</h3>
+          <p>Computer Information Technology</p>
+          <div class="tags">
+            <span class="tag">Certificate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CERTIFICATES ==================== -->
+<section id="certificates">
+  <div class="container reveal">
+    <span class="section-label">Achievements</span>
+    <h2 class="section-title">My<br>Certificates</h2>
+    <div class="title-line"></div>
+    <div class="cert-grid" id="certGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== PROJECTS ==================== -->
+<section id="projects">
+  <div class="container reveal">
+    <span class="section-label">Portfolio</span>
+    <h2 class="section-title">Featured<br>Projects</h2>
+    <div class="title-line"></div>
+    <div class="projects-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== EXPERIENCE ==================== -->
+<section id="experience">
+  <div class="container reveal">
+    <span class="section-label">Experience</span>
+    <h2 class="section-title">Work<br>Experience</h2>
+    <div class="title-line"></div>
+    <div class="exp-timeline">
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <span class="exp-date">1 Month Internship</span>
+          <h3>Web Development Intern</h3>
+          <p>
+            Completed a 1-month internship focused on web development,
+            building real-world projects with the MERN stack and strengthening
+            frontend skills with HTML, CSS, and JavaScript.
+          </p>
+          <div class="tags">
+            <span class="tag">MERN Stack</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="container reveal">
+    <span class="section-label">Expertise</span>
+    <h2 class="section-title">Skills &<br>Technologies</h2>
+    <div class="title-line"></div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+  <div class="container reveal">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title">Let's Build<br>Something Great</h2>
+    <div class="title-line"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>soomromuhammadabbas671@gmail.com</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+92 317 3494900</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Islamabad, Pakistan</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">⏰</div>
+          <div>
+            <h4>Availability</h4>
+            <p>Mon – Fri, 9 AM – 6 PM PKT</p>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="#" class="soc-btn">GitHub</a>
+          <a href="#" class="soc-btn">LinkedIn</a>
+          <a href="#" class="soc-btn">Twitter</a>
+          <a href="#" class="soc-btn">Upwork</a>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input id="name" name="name" type="text" placeholder="John Doe" required />
+          </div>
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input id="email" name="email" type="email" placeholder="john@email.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" placeholder="+92 XXX XXXXXXX" />
+          </div>
+          <div class="field">
+            <label for="subject">Subject *</label>
+            <input id="subject" name="subject" type="text" placeholder="Project Inquiry" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+        </div>
+        <div id="formMsg" class="form-msg" style="display:none"></div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Send Message →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-simple">
+    <p>&copy; 2026 Muhammad Abbas. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#" class="soc-btn">GitHub</a>
+      <a href="#" class="soc-btn">LinkedIn</a>
+      <a href="#" class="soc-btn">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
