@@ -1,0 +1,42 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow sensitive or unnecessary paths
+Disallow: /Images/Projects/
+
+# Sitemap
+Sitemap: https://coder-abbas.github.io/sitemap.xml
+</arg_value>
+</write_to_file>
+
+<task_progress>
+- [x] Update SEO title, description, keywords, author, canonical
+- [x] Update OG/Twitter meta tags with correct URL and names
+- [x] Update Person JSON-LD schema
+- [x] Update WebSite JSON-LD schema
+- [x] Update FAQPage JSON-LD schema
+- [x] Create sitemap.xml
+- [x] Create robots.txt
+- [ ] Test and verify
+</task_progress></think><write_to_file>
+<absolutePath>e:\Portfolio\robots.txt</absolutePath>
+<content># https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://coder-abbas.github.io/sitemap.xml
+</arg_value>
+</write_to_file>
+
+<task_progress>
+- [x] Update SEO title, description, keywords, author, canonical
+- [x] Update OG/Twitter meta tags with correct URL and names
+- [x] Update Person JSON-LD schema
+- [x] Update WebSite JSON-LD schema
+- [x] Update FAQPage JSON-LD schema
+- [x] Create sitemap.xml
+- [x] Create robots.txt
+- [ ] Test and verify</task_progress>
+</write_to_file></tool_call>
