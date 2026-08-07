@@ -321,42 +321,49 @@ function closeMob() {
   document.getElementById('mobMenu').classList.remove('open');
 }
 
-/* ====================== CONTACT FORM (mailto - no backend needed) ====================== */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+/* ====================== CONTACT FORM (Web3Forms) ====================== */
+const form = document.getElementById('contactForm');
+const submitBtn = form.querySelector('button[type="submit"]');
+const msg = document.getElementById('formMsg');
+
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  const msg = document.getElementById('formMsg');
 
-  const name    = document.getElementById('name').value;
-  const email   = document.getElementById('email').value;
-  const phone   = document.getElementById('phone').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
+  const formData = new FormData(form);
+  formData.append("access_key", "913d3e15-c013-4151-adac-26b40f842da2");
 
-  btn.textContent = 'Opening Email…'; btn.disabled = true;
+  const originalText = submitBtn.textContent;
+
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
   msg.style.display = 'none';
 
-  // Build the mailto link with all form data
-  const recipient = 'soomromuhammadabbas671@gmail.com';
-  const mailSubject = encodeURIComponent(`${subject} — from ${name}`);
-  const mailBody = encodeURIComponent(
-    `Name: ${name}\n` +
-    `Email: ${email}\n` +
-    `Phone/WhatsApp: ${phone}\n` +
-    `\nMessage:\n${message}`
-  );
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
 
-  const mailtoLink = `mailto:${recipient}?subject=${mailSubject}&body=${mailBody}`;
+    const data = await response.json();
 
-  // Open the visitor's email client with the pre-filled message
-  window.location.href = mailtoLink;
+    if (response.ok) {
+      msg.className = 'form-msg ok';
+      msg.textContent = '✓ Success! Your message has been sent.';
+      form.reset();
+    } else {
+      msg.className = 'form-msg err';
+      msg.textContent = '✗ Error: ' + data.message;
+    }
 
-  msg.className = 'form-msg ok';
-  msg.textContent = '✓ Your email app has opened! Just press Send in your email app.';
-  msg.style.display = 'block';
-
-  btn.textContent = 'Send Message →'; btn.disabled = false;
-  setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  } catch (error) {
+    msg.className = 'form-msg err';
+    msg.textContent = '✗ Something went wrong. Please try again.';
+  } finally {
+    msg.style.display = 'block';
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+    setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  }
 });
 
 /* ====================== ACTIVE NAV HIGHLIGHT ====================== */
