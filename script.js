@@ -315,10 +315,13 @@ skillCats.forEach(el => io.observe(el));
 /* ====================== MOBILE MENU ====================== */
 function toggleMob() {
   const m = document.getElementById('mobMenu');
+  const ham = document.getElementById('ham');
   m.classList.toggle('open');
+  ham.classList.toggle('open');
 }
 function closeMob() {
   document.getElementById('mobMenu').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
 }
 
 /* ====================== CONTACT FORM (Web3Forms) ====================== */
