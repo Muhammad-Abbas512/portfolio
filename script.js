@@ -7,70 +7,76 @@ const CERTS = [
     title: 'HTML Certificate',
     issuer: 'Great Learning',
     desc: 'Completed a comprehensive HTML course covering semantic markup, forms, tables, and modern HTML5 features.',
-    badge: 'HTML'
+    badges: ['HTML', 'HTML5', 'Web Development']
   },
   {
     img: 'Images/CSS certificate by great learning.jpg',
     title: 'CSS Certificate',
     issuer: 'Great Learning',
     desc: 'Mastered CSS styling including flexbox, grid, animations, responsive design, and modern layout techniques.',
-    badge: 'CSS'
+    badges: ['CSS', 'CSS3', 'Flexbox', 'Grid']
   },
   {
     img: 'Images/Responsvie-web-design.png',
     title: 'Responsive Web Design',
     issuer: 'freeCodeCamp',
     desc: 'Earned certification in responsive web design — building mobile-first, accessible, and adaptive web pages.',
-    badge: 'Responsive'
+    badges: ['HTML', 'CSS', 'JavaScript', 'Responsive Design']
   },
   {
     img: 'Images/certificate.png',
-    title: 'CSS Certificate',
+    title: 'Full Stack E-commerce Project',
     issuer: 'Great Learning',
-    desc: 'Advanced CSS certification covering transitions, transforms, and building visually stunning interfaces.',
-    badge: 'CSS'
+    desc: 'Built a complete full-stack e-commerce platform using the MERN stack with authentication and payment integration.',
+    badges: ['MERN Stack', 'React', 'Node.js', 'MongoDB', 'Express']
+  },
+  {
+    img: 'Images/CIT.jpeg',
+    title: 'Certificate in Information Technology',
+    issuer: 'Adnan computer classes Shahdadkot',
+    desc: 'Completed a 6-month CIT course covering computer fundamentals, programming, and IT concepts. basics of computer hardware and software.',
+    badges: ['Basic IT', 'Photoshop', 'MS Office', 'Excel', 'PowerPoint']
   }
 ];
 
 /* Projects */
 const PROJECTS = [
   {
-    img: 'Images/html.jpg',
+    img: 'Images/Projects/ecommerce.png',
     emoji: '🛍️',
     title: 'E-Commerce Platform',
     desc: 'Full-stack MERN e-commerce platform with product catalog, cart, checkout, and admin dashboard.',
     tags: ['React', 'Node.js', 'MongoDB', 'Express']
   },
   {
-    img: 'Images/CSS certificate by great learning.jpg',
+    img: 'Images/Projects/Authentication.png',
     emoji: '💬',
     title: 'Real-time Chat App',
     desc: 'Real-time messaging application using Socket.io with instant message delivery and user presence.',
     tags: ['React', 'Socket.io', 'Express', 'MongoDB']
   },
   {
-    img: 'Images/Responsvie-web-design.png',
+    img: 'Images/Projects/gallery.png',
     emoji: '📝',
     title: 'Notes App',
     desc: 'Full-stack notes application with CRUD operations, search, and user authentication.',
     tags: ['React', 'Node.js', 'MongoDB', 'Express']
   },
   {
-    img: 'Images/certificate.png',
-    emoji: '🖼️',
+    img: 'Images/Projects/gallery.png',
     title: 'Gallery App',
     desc: 'Image gallery application with upload, categorization, and responsive grid layout.',
     tags: ['React', 'Node.js', 'MongoDB', 'Express']
   },
   {
-    img: 'Images/html.jpg',
-    emoji: '🔐',
+    img: 'Images/Projects/Authentication.png',
+
     title: 'Authentication System',
     desc: 'Secure authentication system with Gmail verification, JWT tokens, and protected routes.',
     tags: ['React', 'Node.js', 'MongoDB', 'JWT']
   },
   {
-    img: 'Images/CSS certificate by great learning.jpg',
+    img: 'Images/Projects/ecommerce.png',
     emoji: '🛒',
     title: 'E-Commerce Frontend',
     desc: 'Modern e-commerce frontend built with React — product listings, filters, and shopping cart UI.',
@@ -132,7 +138,9 @@ CERTS.forEach(c => {
       <div class="cert-body">
         <h3>${c.title}</h3>
         <p>${c.desc}</p>
-        <span class="cert-badge">${c.badge}</span>
+        <div class="cert-badges">
+          ${c.badges.map(b => `<span class="cert-badge">${b}</span>`).join('')}
+        </div>
       </div>
     </div>`;
 });
@@ -147,7 +155,6 @@ PROJECTS.forEach(p => {
         <img src="${p.img}" alt="${p.title}" loading="lazy" />
       </div>
       <div class="proj-body">
-        <span class="proj-emoji">${p.emoji}</span>
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
         <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
@@ -314,45 +321,42 @@ function closeMob() {
   document.getElementById('mobMenu').classList.remove('open');
 }
 
-/* ====================== CONTACT FORM ====================== */
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
+/* ====================== CONTACT FORM (mailto - no backend needed) ====================== */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   const msg = document.getElementById('formMsg');
-  const data = {
-    name:    document.getElementById('name').value,
-    email:   document.getElementById('email').value,
-    phone:   document.getElementById('phone').value,
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value,
-  };
 
-  btn.textContent = 'Sending…'; btn.disabled = true;
+  const name    = document.getElementById('name').value;
+  const email   = document.getElementById('email').value;
+  const phone   = document.getElementById('phone').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
+
+  btn.textContent = 'Opening Email…'; btn.disabled = true;
   msg.style.display = 'none';
 
-  try {
-    const res = await fetch('http://localhost:5000/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    const json = await res.json();
-    if (res.ok) {
-      msg.className = 'form-msg ok';
-      msg.textContent = '✓ Message sent! I\'ll get back to you soon.';
-      this.reset();
-    } else {
-      throw new Error(json.error || 'Server error');
-    }
-  } catch (err) {
-    msg.className = 'form-msg ok';
-    msg.textContent = '✓ (Preview) Message received! Connect your backend to enable real email delivery.';
-    this.reset();
-  } finally {
-    msg.style.display = 'block';
-    btn.textContent = 'Send Message →'; btn.disabled = false;
-    setTimeout(() => { msg.style.display = 'none'; }, 6000);
-  }
+  // Build the mailto link with all form data
+  const recipient = 'soomromuhammadabbas671@gmail.com';
+  const mailSubject = encodeURIComponent(`${subject} — from ${name}`);
+  const mailBody = encodeURIComponent(
+    `Name: ${name}\n` +
+    `Email: ${email}\n` +
+    `Phone/WhatsApp: ${phone}\n` +
+    `\nMessage:\n${message}`
+  );
+
+  const mailtoLink = `mailto:${recipient}?subject=${mailSubject}&body=${mailBody}`;
+
+  // Open the visitor's email client with the pre-filled message
+  window.location.href = mailtoLink;
+
+  msg.className = 'form-msg ok';
+  msg.textContent = '✓ Your email app has opened! Just press Send in your email app.';
+  msg.style.display = 'block';
+
+  btn.textContent = 'Send Message →'; btn.disabled = false;
+  setTimeout(() => { msg.style.display = 'none'; }, 6000);
 });
 
 /* ====================== ACTIVE NAV HIGHLIGHT ====================== */
