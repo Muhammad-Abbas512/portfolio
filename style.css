@@ -124,6 +124,15 @@ nav {
   animation: slideDown .6s ease both;
 }
 
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
@@ -673,7 +682,8 @@ h2.section-title {
 .cert-img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/10;
+  width: 100%;
+  height: 180px;
   background: rgba(239, 68, 68, .05);
 }
 
@@ -799,7 +809,8 @@ h2.section-title {
 .proj-img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  width: 100%;
+  height: 200px;
   background: rgba(239, 68, 68, .05);
 }
 
@@ -1109,7 +1120,6 @@ h2.section-title {
   box-shadow: 0 8px 24px var(--red-glow);
 }
 
-/* form */
 form {
   display: flex;
   flex-direction: column;
@@ -1304,6 +1314,15 @@ footer::before {
   .contact-grid {
     gap: 3rem;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media(max-width:900px) {
@@ -1395,6 +1414,10 @@ footer::before {
 
   .edu-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
   }
 }
 

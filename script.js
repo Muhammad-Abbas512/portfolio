@@ -132,7 +132,7 @@ CERTS.forEach(c => {
   cg.innerHTML += `
     <div class="cert-card" data-tilt>
       <div class="cert-img-wrap">
-        <img src="${c.img}" alt="${c.title}" loading="lazy" />
+        <img src="${c.img}" alt="${c.title}" loading="lazy" decoding="async" width="600" height="375" />
         <div class="cert-overlay"><span>${c.issuer}</span></div>
       </div>
       <div class="cert-body">
@@ -152,7 +152,7 @@ PROJECTS.forEach(p => {
     <div class="proj-card" data-tilt>
       <div class="proj-link">↗</div>
       <div class="proj-img-wrap">
-        <img src="${p.img}" alt="${p.title}" loading="lazy" />
+        <img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async" width="600" height="340" />
       </div>
       <div class="proj-body">
         <h3>${p.title}</h3>
@@ -177,7 +177,7 @@ SKILLS.forEach(cat => {
 });
 
 /* ====================== CUSTOM CURSOR ====================== */
-const dot  = document.getElementById('cur-dot');
+const dot = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
 let mx = 0, my = 0, rx = 0, ry = 0;
 
@@ -186,7 +186,7 @@ document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; })
 (function trackRing() {
   rx += (mx - rx) * 0.12;
   ry += (my - ry) * 0.12;
-  dot.style.cssText  = `left:${mx}px;top:${my}px`;
+  dot.style.cssText = `left:${mx}px;top:${my}px`;
   ring.style.cssText = `left:${rx}px;top:${ry}px`;
   requestAnimationFrame(trackRing);
 })();
@@ -198,7 +198,7 @@ document.querySelectorAll('a,button,.proj-card,.soc-btn,.stat-card,.info-card,.s
 
 /* ====================== BACKGROUND CANVAS ====================== */
 const canvas = document.getElementById('bgCanvas');
-const ctx    = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 let W, H, particles = [], mouse = { x: 0, y: 0 };
 
 function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
@@ -209,12 +209,12 @@ document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.c
 class Particle {
   constructor() { this.reset(); }
   reset() {
-    this.x  = Math.random() * W;
-    this.y  = Math.random() * H;
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
     this.vx = (Math.random() - .5) * 1.2;
     this.vy = (Math.random() - .5) * 1.2;
-    this.r  = Math.random() * 2 + .8;
-    this.a  = Math.random() * .4 + .1;
+    this.r = Math.random() * 2 + .8;
+    this.a = Math.random() * .4 + .1;
   }
   update() {
     const dx = mouse.x - this.x, dy = mouse.y - this.y;
@@ -223,7 +223,7 @@ class Particle {
       const ang = Math.atan2(dy, dx);
       this.vx = Math.cos(ang) * 2.5;
       this.vy = Math.sin(ang) * 2.5;
-      this.a  = Math.min(1, this.a + .06);
+      this.a = Math.min(1, this.a + .06);
     } else {
       this.a = Math.max(.1, this.a - .015);
     }
@@ -283,8 +283,8 @@ document.addEventListener('mousemove', e => {
 document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width  - .5) * 18;
-    const y = ((e.clientY - r.top)  / r.height - .5) * 18;
+    const x = ((e.clientX - r.left) / r.width - .5) * 18;
+    const y = ((e.clientY - r.top) / r.height - .5) * 18;
     card.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${-y}deg) scale(1.04)`;
   });
   card.addEventListener('mouseleave', () => {
